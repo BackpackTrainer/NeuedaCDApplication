@@ -1,12 +1,26 @@
 package com.example.CDLibrary.model;
 
-public class CD {
-    String title;
-    String artistName;
 
-    public CD(String title, String artistName) {
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
+public class CD {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Long id;
+
+    String title;
+    String artist;
+
+    public CD()  {}
+
+    public CD(String title, String artist) {
         this.title = title;
-        this.artistName = artistName;
+        this.artist = artist;
     }
 
     public String getTitle() {
@@ -17,11 +31,11 @@ public class CD {
         this.title = title;
     }
 
-    public String getArtistName() {
-        return artistName;
+    public String getArtist() {
+        return artist;
     }
 
-    public void setArtistName(String artistName) {
-        this.artistName = artistName;
+    public void setArtist(String artist) {
+        this.artist = artist;
     }
 }
