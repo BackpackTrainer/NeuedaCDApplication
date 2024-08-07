@@ -14,7 +14,8 @@ public class CDController {
 
     CdService cdService;
 
-@GetMapping("/compactdisc") public Iterable<CD>  getAllCDs()  {
+@GetMapping("/compactdisc")
+public Iterable<CD>  getAllCDs()  {
 
     return cdService.findAll();
 }
