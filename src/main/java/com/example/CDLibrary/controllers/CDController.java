@@ -4,6 +4,7 @@ import com.example.CDLibrary.model.CD;
 import com.example.CDLibrary.services.CdService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -18,6 +19,11 @@ public class CDController {
 public Iterable<CD>  getAllCDs()  {
 
     return cdService.findAll();
+}
+
+@GetMapping("/compactdisc/{name}")
+public Iterable<CD> findAllByName(@PathVariable String name) {
+    return cdService.findByArtistOrderByArtistDesc(name);
 }
 
     public CdService getCdService() {

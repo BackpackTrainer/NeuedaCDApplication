@@ -18,7 +18,14 @@ public class CdServiceImpl implements CdService{
     public Iterable<CD> findAll() {
     return cdRepository.findAll();
     }
-@Autowired
+
+    @Override
+    public Iterable<CD> findByArtistOrderByArtistDesc(String name) {
+        return cdRepository.findByArtistOrderByTitleDesc(name);
+    }
+
+
+    @Autowired
     public void setCdRepository(CdRepository cdRepository) {
         this.cdRepository = cdRepository;
     }
