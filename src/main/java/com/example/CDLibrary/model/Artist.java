@@ -10,12 +10,12 @@ public class Artist {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    Long artist_id;
+    private Long artist_id;
 
-    String name;
+    private String name;
 
     @OneToMany(mappedBy = "artist")
-    List<CD> cdList = new ArrayList<>();
+    private List<CD> cdList = new ArrayList<>();
 
     public Artist() {}
 

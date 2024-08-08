@@ -8,25 +8,25 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class CDController {
 
-    CdService cdService;
+    private CdService cdService;
 
-@GetMapping("/compactdisc")
-public Iterable<CD>  getAllCDs()  {
+    @GetMapping("/compactdiscs")
+    public Iterable<CD> getAllCDs() {
 
-    return cdService.findAll();
-}
+        return cdService.findAll();
+    }
 
-@GetMapping("/compactdisc/{name}")
-public Iterable<CD> findAllByArtistName(@PathVariable String name) {
-    return cdService.findByArtistNameOrderByTitle(name);
-}
+    @GetMapping("/compactdiscs/byArtist/{name}")
+    public Iterable<CD> findAllByArtistName(@PathVariable String name) {
+        return cdService.findByArtistNameOrderByTitle(name);
+    }
 
-@PostMapping("/addCD")
-public CD createCD(@RequestBody CD cd)  {
-    return cdService.saveCD(cd);
-}
+    @PostMapping("/compactdiscs")
+    public CD createCD(@RequestBody CD cd) {
+        return cdService.saveCD(cd);
+    }
 
-public CdService getCdService() {
+    public CdService getCdService() {
         return cdService;
     }
 
