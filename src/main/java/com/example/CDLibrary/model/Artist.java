@@ -13,6 +13,7 @@ public class Artist {
     Long artist_id;
 
     String name;
+
     @OneToMany(mappedBy = "artist")
     List<CD> cdList = new ArrayList<>();
 
