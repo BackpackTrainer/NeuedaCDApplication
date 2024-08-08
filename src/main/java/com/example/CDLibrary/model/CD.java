@@ -8,13 +8,13 @@ public class CD {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
-    String title;
+    private String title;
 
     @ManyToOne
     @JoinColumn(name = "artist_id")
-    Artist artist;
+    private Artist artist;
 
     public CD()  {}
 
