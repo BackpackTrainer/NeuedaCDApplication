@@ -34,10 +34,11 @@ public class CdServiceImpl implements CdService{
         if (artistOptional.isPresent()) {
             artist = artistOptional.get();
         } else {
-            // If the artist does not exist, create a new artist
-            artist = new Artist();
-            artist.setName(artist.getName());
-            artist = artistRepository.save(artist);
+            // If the artist does not exist in the database, create a new artist and save it in the DB.
+            //This will give the artist a DB ID so that we can then commit the CD to the database.
+            Artist realArtist = new Artist();
+            realArtist.setName(artist.getName());
+            artist = artistRepository.save(realArtist);
         }
         cd.setArtist(artist);
         return cdRepository.save(cd);
