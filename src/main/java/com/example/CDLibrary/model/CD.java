@@ -1,10 +1,7 @@
 package com.example.CDLibrary.model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class CD {
@@ -14,11 +11,14 @@ public class CD {
     Long id;
 
     String title;
-    String artist;
+
+    @ManyToOne
+    @JoinColumn(name = "artist_id")
+    Artist artist;
 
     public CD()  {}
 
-    public CD(String title, String artist) {
+    public CD(String title, Artist artist) {
         this.title = title;
         this.artist = artist;
     }
@@ -31,11 +31,11 @@ public class CD {
         this.title = title;
     }
 
-    public String getArtist() {
+    public Artist getArtist() {
         return artist;
     }
 
-    public void setArtist(String artist) {
+    public void setArtist(Artist artist) {
         this.artist = artist;
     }
 }
