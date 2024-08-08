@@ -2,7 +2,7 @@ INSERT INTO ARTIST (name) VALUES
 ('Pink Floyd'),
 ('The Beatles'),
 ('Harry Chapin'),
-('JimmyBuffet');
+('Jimmy Buffet');
 
 
 INSERT INTO CD (title, artist_id) VALUES
