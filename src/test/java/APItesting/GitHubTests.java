@@ -15,7 +15,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GitHubTests {
 
-
     @Test
     public void testWithKnownUser() throws IOException {
         int expectedResult = HttpStatus.SC_OK;
